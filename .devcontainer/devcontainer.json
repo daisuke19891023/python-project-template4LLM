@@ -23,8 +23,10 @@
       "settings": {
         "editor.renderWhitespace": "all",
         "python.defaultInterpreterPath": ".venv/bin/python",
-        "python.formatting.provider": "black",
+        // "python.formatting.provider": "black",
+
         "[python]": {
+          "editor.defaultFormatter": "ms-python.black-formatter",
           "editor.formatOnSave": true,
           "editor.codeActionsOnSave": {
             "source.fixAll": true,
@@ -33,6 +35,10 @@
         },
         "python.testing.pytestArgs": ["tests", "--capture=tee-sys", "-vv"],
         "python.testing.pytestEnabled": true,
+        "python.analysis.autoImportCompletions": true,
+        "python.analysis.inlayHints.functionReturnTypes": true,
+        "python.analysis.inlayHints.pytestParameters": true,
+        "python.analysis.inlayHints.variableTypes": true,
         "coverage-gutters.showLineCoverage": true,
         "coverage-gutters.showRulerCoverage": true,
         "coverage-gutters.coverageFileNames": [".pytest_cache/coverage.xml"],
@@ -57,24 +63,10 @@
         "streetsidesoftware.code-spell-checker",
         "KevinRose.vsc-python-indent",
         "charliermarsh.ruff",
-        "ryanluker.vscode-coverage-gutters"
-        // "ms-python.isort"
+        "ryanluker.vscode-coverage-gutters",
+        "ms-python.black-formatter"
       ]
     }
   },
   "postCreateCommand": "./.devcontainer/postCreateCommand.sh"
-  // Features to add to the dev container. More info: https://containers.dev/features.
-  // "features": {},
-
-  // Use 'forwardPorts' to make a list of ports inside the container available locally.
-  // "forwardPorts": [],
-
-  // Use 'postCreateCommand' to run commands after the container is created.
-  // "postCreateCommand": "pip3 install --user -r requirements.txt",
-
-  // Configure tool-specific properties.
-  // "customizations": {},
-
-  // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-  // "remoteUser": "root"
 }

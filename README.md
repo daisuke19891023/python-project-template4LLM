@@ -20,7 +20,7 @@ A Python project template using Poetry as a dependency management and packaging 
 
 1. Clone the repository:
 
-   git clone https://github.com/username/mymodule.git
+   git clone https://github.com/daisuke19891023/python-project-template4LLM.git
    cd mymodule
 
 2. Install dependencies:
