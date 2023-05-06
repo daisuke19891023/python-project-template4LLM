@@ -40,4 +40,4 @@ jobs:
         python -m poetry install
     - name: Lint and format by Build
       run: |
-        poe build
+        python -m poe build
