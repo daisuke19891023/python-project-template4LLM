@@ -5,39 +5,38 @@ name: Python application
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
 permissions:
   contents: read
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Set up Python 3.11
-      uses: actions/setup-python@v3
-      with:
-        python-version: "3.11"
-    - name: Install poetry
-      run: |
-        python -m pip install --upgrade pip
-        pip install poetry==1.4.2
-    - name: Configure poetry
-      run: |
-        python -m poetry config virtualenvs.in-project true
-    - name: Cache the virtualenv
-      uses: actions/cache@v2
-      with:
-        path: ./.venv
-        key: ${{ runner.os }}-venv-${{ hashFiles('**/poetry.lock') }}
-    - name: Install dependencies
-      run: |
-        python -m poetry install
-    - name: Lint and format by Build
-      run: |
-        python -m poetry run poe build
+      - uses: actions/checkout@v3
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.12"
+      - name: Install poetry
+        run: |
+          python -m pip install --upgrade pip
+          pip install poetry==1.4.2
+      - name: Configure poetry
+        run: |
+          python -m poetry config virtualenvs.in-project true
+      - name: Cache the virtualenv
+        uses: actions/cache@v2
+        with:
+          path: ./.venv
+          key: ${{ runner.os }}-venv-${{ hashFiles('**/poetry.lock') }}
+      - name: Install dependencies
+        run: |
+          python -m poetry install
+      - name: Lint and format by Build
+        run: |
+          python -m poetry run poe build
